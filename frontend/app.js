@@ -11,10 +11,18 @@ const switchText = document.getElementById("switchText");
 let isRegisterMode = false;
 
 // Toggle between Login and Register views
-if (toggleAuth) {
-  toggleAuth.addEventListener("click", (e) => {
+if (switchText) {
+  switchText.addEventListener("click", (e) => {
+    const targetLink = e.target.closest("#toggleAuth");
+    if (!targetLink) return;
     e.preventDefault();
+
     isRegisterMode = !isRegisterMode;
+
+    const loginMsg = document.getElementById("message");
+    const regMsg = document.getElementById("registerMessage");
+    if (loginMsg) { loginMsg.textContent = ""; loginMsg.className = ""; }
+    if (regMsg) { regMsg.textContent = ""; regMsg.className = ""; }
 
     if (isRegisterMode) {
       loginSection.classList.add("hidden");
@@ -25,9 +33,6 @@ if (toggleAuth) {
       loginSection.classList.remove("hidden");
       switchText.innerHTML = `Don't have an account? <a href="#" id="toggleAuth">Register</a>`;
     }
-
-    // Re-attach listener to new dynamic link
-    document.getElementById("toggleAuth").addEventListener("click", arguments.callee);
   });
 }
 
