@@ -1,5 +1,5 @@
 // Configuration: Replace with your Render URL when deployed (e.g., https://your-api.onrender.com)
-const API_URL = "https://db2-login-o617.onrender.com/"; // Replace with your Render URL when deployed
+const API_URL = "https://db2-login-o617.onrender.com".replace(/\/+$/, ""); // Replace with your Render URL when deployed
 // const API_URL = "http://localhost:5000";
 
 const loginSection = document.getElementById("loginSection");
@@ -56,9 +56,14 @@ if (loginForm) {
         body: JSON.stringify({ email, password })
       });
 
-      const data = await res.json();
+      let data = {};
+      try {
+        data = await res.json();
+      } catch (parseErr) {
+        // Not JSON
+      }
 
-      if (data.token) {
+      if (res.ok && data.token) {
         localStorage.setItem("token", data.token);
         if (data.user) {
           localStorage.setItem("user", JSON.stringify(data.user));
@@ -108,7 +113,12 @@ if (registerForm) {
         body: JSON.stringify({ name, email, password })
       });
 
-      const data = await res.json();
+      let data = {};
+      try {
+        data = await res.json();
+      } catch (parseErr) {
+        // Not JSON
+      }
 
       if (res.ok) {
         regMessageEl.textContent = data.message || "Registration successful!";
