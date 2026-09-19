@@ -17,7 +17,7 @@ body {
   width: 380px;
   max-width: 95%;
   padding: 32px;
-  background: #ffffff;
+  background: #f0c6c6;
   border-radius: 12px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
   border: 1px solid #e5e7eb;
@@ -67,7 +67,7 @@ button {
   padding: 12px;
   border: 0;
   border-radius: 6px;
-  background: #22252c;
+  background: #2b2d31;
   color: #ffffff;
   font-size: 0.95rem;
   font-weight: 500;
@@ -76,7 +76,7 @@ button {
 }
 
 button:hover {
-  background: #41556b;
+  background: #4f6275;
 }
 
 button:disabled {
