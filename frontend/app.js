@@ -1,5 +1,5 @@
 // Configuration: Replace with your Render URL when deployed (e.g., https://your-api.onrender.com)
-const API_URL = "https://log-in-db2.onrender.com"; // Replace with your Render URL when deployed
+const API_URL = "https://db-2-login.onrender.com/"; // Replace with your Render URL when deployed
 // const API_URL = "http://localhost:5000";
 
 const loginSection = document.getElementById("loginSection");
